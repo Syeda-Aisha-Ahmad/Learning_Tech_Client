@@ -3,16 +3,21 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 
-const Login = () => {
+const Register = () => {
     return (
         <div>
             <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control type="text" placeholder="Enter email" />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Photo Url</Form.Label>
+                    <Form.Control type="text" placeholder="Enter email" />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control type="email" placeholder="Enter email" />
-                    <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
-                    </Form.Text>
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -22,10 +27,10 @@ const Login = () => {
                 <Button variant="danger" type="submit">
                     Submit
                 </Button>
-                <p>Don't have an account? please <Link to="/register">Register</Link></p>
+                <p>Already have an account? please <Link to="/login">LogIn</Link></p>
             </Form>
         </div>
     );
 };
 
-export default Login;
+export default Register;

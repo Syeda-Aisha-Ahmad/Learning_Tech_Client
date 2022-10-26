@@ -4,6 +4,7 @@ import Courses from './components/Courses/Courses';
 import Header from './components/header/Header';
 import Home from './components/Home/Home';
 import Login from './components/login/Login';
+import Register from './components/register/Register';
 import Main from './components/route/Main';
 
 function App() {
@@ -12,10 +13,10 @@ function App() {
       path: '/',
       element: <Main></Main>,
       children: [
-        { path: '/', element: <Home></Home> },
         { path: '/courses', element: <Courses></Courses> },
         { path: '/blog', element: <Blog></Blog> },
-        { path: '/login', element: <Login></Login> }
+        { path: '/login', element: <Login></Login> },
+        { path: '/register', element: <Register></Register> },
       ]
     }
   ])
