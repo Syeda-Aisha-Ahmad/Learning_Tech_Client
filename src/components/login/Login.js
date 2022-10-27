@@ -5,8 +5,27 @@ import { Link } from 'react-router-dom';
 import googleLogo from './google.png'
 import gitLogo from './github.png'
 import './login.css'
-
+import { GoogleAuthProvider } from 'firebase/auth';
+import { useContext } from 'react';
+import { AuthContext } from '../authprovider/AuthProvider';
 const Login = () => {
+    const provider = new GoogleAuthProvider();
+    const { googleSignIn } = useContext(AuthContext);
+
+    const googleHandler = () => {
+        googleSignIn(provider)
+            // .then(result => {
+            //     const user = result.user;
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+            })
+            .catch(error => {
+                console.error(error)
+            })
+
+        // })
+    }
     return (
         <div>
             <Form className='mt-5 mx-auto w-50'>
@@ -25,7 +44,7 @@ const Login = () => {
                 <p className='mb-0'>Or login with ...</p>
                 <div className='logo-div-style'>
 
-                    <img className='logo-style' src={googleLogo} alt="" />
+                    <img onClick={googleHandler} className='logo-style' src={googleLogo} alt="" />
                     <img className='logo-style' src={gitLogo} alt="" />
                 </div>
                 <p>Don't have an account? please <Link to="/register">Register</Link></p>

@@ -32,18 +32,20 @@ const Header = () => {
                                 <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
                             </div>
                             <Link className='login' to='/login'>LogIn</Link>
+                            {
+                                clicked ?
+                                    <div>
+                                        <FontAwesomeIcon onClick={() => setClicked(!clicked)} icon={faMoon}></FontAwesomeIcon>
+                                    </div>
+                                    :
+                                    <div>
+                                        <FontAwesomeIcon onClick={setClicked} icon={faSun}></FontAwesomeIcon>
+                                    </div>
+                            }
                         </Nav>
+
                     </Navbar.Collapse>
-                    {
-                        clicked ?
-                            <div>
-                                <FontAwesomeIcon onClick={() => setClicked(!clicked)} icon={faMoon}></FontAwesomeIcon>
-                            </div>
-                            :
-                            <div>
-                                <FontAwesomeIcon onClick={setClicked} icon={faSun}></FontAwesomeIcon>
-                            </div>
-                    }
+
                 </Container>
             </Navbar>
         </div>
