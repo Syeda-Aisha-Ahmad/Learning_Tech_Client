@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Register = () => {
     return (
         <div>
-            <Form>
+            <Form className='mt-5 mx-auto w-50'>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Name</Form.Label>
                     <Form.Control type="text" placeholder="Enter email" />
@@ -24,7 +24,7 @@ const Register = () => {
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" placeholder="Password" />
                 </Form.Group>
-                <Button variant="danger" type="submit">
+                <Button className='mb-4' variant="danger" type="submit">
                     Submit
                 </Button>
                 <p>Already have an account? please <Link to="/login">LogIn</Link></p>

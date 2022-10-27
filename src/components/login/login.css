@@ -1,0 +1,12 @@
+.logo-div-style {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.logo-style {
+    width: 5%;
+    padding: 0;
+    margin: 15px;
+}

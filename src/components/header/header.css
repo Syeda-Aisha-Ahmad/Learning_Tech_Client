@@ -8,11 +8,37 @@
     margin-right: 10px;
 }
 
-.light-mode {
+.mode {
     padding: 4%;
 
 }
 
-.dark-mode {
-    padding: 4%;
+.nav-link-style {
+    color: #814175;
+    font-size: 17px;
+    text-decoration: none;
+    margin-right: 15px;
+    padding-top: 3%;
+}
+
+.button-style {
+    font-size: 17px;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    background-color: #814175;
+}
+
+.login {
+    color: #814175;
+    font-size: 17px;
+    font-weight: 700;
+    border: 1px solid #814175;
+    border-radius: 10px;
+    text-decoration: none;
+    padding: 3px 15px;
+    margin-left: 10px;
+    margin-right: 40px;
+    display: flex;
+    align-items: center;
 }

@@ -7,7 +7,6 @@ import './header.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMoon, faSun, faUser } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 
 
@@ -15,7 +14,7 @@ const Header = () => {
     const [clicked, setClicked] = useState(false);
     return (
         <div>
-            <Navbar expand="lg" className='navbar-style'>
+            <Navbar expand="lg" className='d-flex navbar-style '>
                 <Container>
 
                     <Navbar.Brand href="/">
@@ -25,28 +24,26 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ms-auto">
-                            <Nav.Link href="courses">Courses</Nav.Link>
-                            <Nav.Link href="faq">FAQ</Nav.Link>
-                            <Nav.Link href="blog">Blog</Nav.Link>
-                            {
-                                clicked ?
-                                    <div className='dark-mode'>
-                                        <FontAwesomeIcon onClick={() => setClicked(!clicked)} icon={faMoon}></FontAwesomeIcon>
-                                    </div>
-                                    :
-                                    <div className='light-mode'>
-                                        <FontAwesomeIcon onClick={setClicked} icon={faSun}></FontAwesomeIcon>
-                                    </div>
-                            }
-                            <div className='dark-mode'>
+                            <Link className='nav-link-style' to="courses">Courses</Link>
+                            <Link className='nav-link-style' to="faq">FAQ</Link>
+                            <Link className='nav-link-style' to="blog">Blog</Link>
+
+                            <div className='mode'>
                                 <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
                             </div>
-                            <Link to='/login'><Button variant="outline-danger" className='ms-2 p-3'>LogIn</Button></Link>
-
-
-
+                            <Link className='login' to='/login'>LogIn</Link>
                         </Nav>
                     </Navbar.Collapse>
+                    {
+                        clicked ?
+                            <div>
+                                <FontAwesomeIcon onClick={() => setClicked(!clicked)} icon={faMoon}></FontAwesomeIcon>
+                            </div>
+                            :
+                            <div>
+                                <FontAwesomeIcon onClick={setClicked} icon={faSun}></FontAwesomeIcon>
+                            </div>
+                    }
                 </Container>
             </Navbar>
         </div>
