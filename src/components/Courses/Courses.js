@@ -8,7 +8,7 @@ const Courses = () => {
     const [courses, setCourses] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/courses ')
+        fetch('https://a-10-api.vercel.app/courses ')
             .then(res => res.json())
             .then(data => setCourses(data))
     }, [])

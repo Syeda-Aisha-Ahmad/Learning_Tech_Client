@@ -29,7 +29,7 @@ function App() {
           path: '/details/:id',
           element: <CourseDetails></CourseDetails>,
           loader: async ({ params }) => {
-            return fetch(`http://localhost:5000/details/${params.id}`)
+            return fetch(`https://a-10-api.vercel.app/details/${params.id}`)
           }
         },
         {
@@ -37,7 +37,7 @@ function App() {
 
           element: < PrivateRoute > <Checkout></Checkout></PrivateRoute >,
           loader: async ({ params }) => {
-            return fetch(`http://localhost:5000/checkhout/${params.id}`)
+            return fetch(`https://a-10-api.vercel.app/checkhout/${params.id}`)
           }
         }
       ]
