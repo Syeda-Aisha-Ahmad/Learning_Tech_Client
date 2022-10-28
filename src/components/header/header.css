@@ -1,5 +1,6 @@
 .navbar-style {
     background-color: #fff9ed;
+    /* display: flex; */
 }
 
 .logo-style {
@@ -12,9 +13,9 @@
     text-decoration: none;
 }
 
-.mode {
+/* .mode {
     padding: 4%;
-}
+} */
 
 .nav-link-style {
     color: #814175;
@@ -30,6 +31,12 @@
     border: none;
     border-radius: 10px;
     background-color: #814175;
+}
+
+.profile-photo {
+    width: 10%;
+    border-radius: 50%;
+    border: 1px solid #333;
 }
 
 .login {

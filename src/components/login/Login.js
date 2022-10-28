@@ -14,7 +14,7 @@ const Login = () => {
     const gitProvider = new GithubAuthProvider();
     const { googleSignIn, githubLogIn, loginAccount } = useContext(AuthContext);
 
-    const [errorText, setErrorText] = useState();
+    const [errorText, setErrorText] = useState('');
 
     //Login with email
     const loginHandler = (event) => {
@@ -31,6 +31,7 @@ const Login = () => {
             })
             .catch(error => {
                 console.error(error)
+                setErrorText(error.message)
             })
     }
 
@@ -42,7 +43,6 @@ const Login = () => {
                 console.log(user)
             })
             .catch(error => {
-                console.error(error)
                 setErrorText(error.message)
             })
     }
@@ -55,7 +55,7 @@ const Login = () => {
                 console.log(user)
             })
             .catch(error => {
-                console.error(error)
+                setErrorText(error.message)
             })
     }
 
@@ -74,7 +74,7 @@ const Login = () => {
                 <Button className='mb-4' variant="danger" type="submit">
                     Submit
                 </Button>
-                <p>{errorText}</p>
+                <p className='text-danger'>{errorText}</p>
                 <p className='mb-0'>Or login with ...</p>
                 <div className='logo-div-style'>
 

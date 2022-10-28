@@ -10,11 +10,15 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../authprovider/AuthProvider';
+import { Image } from 'react-bootstrap';
+
 
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
     const [clicked, setClicked] = useState(false);
+
+    console.log(user)
 
     const userLogout = () => {
         logOut()
@@ -23,7 +27,7 @@ const Header = () => {
     }
     return (
         <div>
-            <Navbar expand="lg" className='d-flex navbar-style '>
+            <Navbar expand="lg" className='navbar-style'>
                 <Container>
 
                     <Navbar.Brand><Link to={'/'} className='logo-name-style'>
@@ -35,31 +39,50 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ms-auto">
-                            <Link className='nav-link-style' to="courses">Courses</Link>
-                            <Link className='nav-link-style' to="faq">FAQ</Link>
-                            <Link className='nav-link-style' to="blog">Blog</Link>
+                            <Nav.Link><Link className='nav-link-style' to="courses">Courses</Link></Nav.Link>
 
-                            <div className='mode'>
-                                <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
-                            </div>
-                            {
-                                user?.uid ?
-                                    <Link onClick={userLogout} className='login' to='/login'>LogOut</Link>
-                                    :
-                                    <Link className='login' to='/login'>LogIn</Link>
-                            }
+                            <Nav.Link><Link className='nav-link-style' to="faq">FAQ</Link></Nav.Link>
 
+                            <Nav.Link><Link className='nav-link-style' to="blog">Blog</Link></Nav.Link>
 
-                            {
-                                clicked ?
-                                    <div>
+                            <Nav.Link>
+                                {
+                                    user?.uid ?
+                                        <div>
+                                            {
+                                                user?.photoURL ?
+                                                    <Nav.Link>
+                                                        <Image
+                                                            title={user?.displayName
+                                                            }
+                                                            className='profile-photo' src={user.photoURL}></Image>
+                                                    </Nav.Link>
+                                                    :
+                                                    <Nav.Link>
+                                                        <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
+                                                    </Nav.Link>
+                                            }
+                                            <Nav.Link>
+                                                <Link onClick={userLogout} className='login' to='/login'>LogOut</Link>
+                                            </Nav.Link>
+
+                                        </div>
+                                        :
+                                        <Nav.Link>
+                                            <Link className='login' to='/login'>LogIn</Link>
+                                        </Nav.Link>
+
+                                }
+                            </Nav.Link>
+                            <Nav.Link>
+                                {
+                                    clicked ?
                                         <FontAwesomeIcon onClick={() => setClicked(!clicked)} icon={faMoon}></FontAwesomeIcon>
-                                    </div>
-                                    :
-                                    <div>
+                                        :
                                         <FontAwesomeIcon onClick={setClicked} icon={faSun}></FontAwesomeIcon>
-                                    </div>
-                            }
+                                }
+                            </Nav.Link>
+
                         </Nav>
 
                     </Navbar.Collapse>
