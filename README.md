@@ -68,3 +68,16 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+# Website Name : Learning Tech
+
+# Live Site Link :
+
+# Features
+
+• Created routes using react router
+• Added signup function in 3 different ways using firebase
+• Added PDF file
+• Added dark/light toggle icon.
+• Created dynamic routes
