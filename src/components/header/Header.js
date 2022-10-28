@@ -8,10 +8,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMoon, faSun, faUser } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../authprovider/AuthProvider';
 
 
 const Header = () => {
+    const { user, logOut } = useContext(AuthContext);
     const [clicked, setClicked] = useState(false);
+
+    const userLogout = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => { })
+    }
     return (
         <div>
             <Navbar expand="lg" className='d-flex navbar-style '>
@@ -33,7 +42,14 @@ const Header = () => {
                             <div className='mode'>
                                 <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
                             </div>
-                            <Link className='login' to='/login'>LogIn</Link>
+                            {
+                                user?.uid ?
+                                    <Link onClick={userLogout} className='login' to='/login'>LogOut</Link>
+                                    :
+                                    <Link className='login' to='/login'>LogIn</Link>
+                            }
+
+
                             {
                                 clicked ?
                                     <div>

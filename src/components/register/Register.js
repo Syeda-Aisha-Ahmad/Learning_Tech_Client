@@ -1,3 +1,4 @@
+import { updateProfile } from 'firebase/auth';
 import React from 'react';
 import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
@@ -7,7 +8,7 @@ import { AuthContext } from '../authprovider/AuthProvider';
 
 const Register = () => {
 
-    const { createAccount } = useContext(AuthContext);
+    const { createAccount, profileNamePhoto } = useContext(AuthContext);
 
     const handleRegister = (event) => {
         event.preventDefault();
@@ -22,12 +23,29 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                profileNamePhotoUrl(name, photo);
                 form.reset();
             })
             .catch(error => {
                 console.error(error)
             })
     }
+
+    //Update user's profile
+    const profileNamePhotoUrl = (name, photo) => {
+        const profile = {
+            displayName: name,
+            photoURL: photo
+        }
+        profileNamePhoto(profile)
+            .then(() => {
+
+            })
+            .catch(error => {
+
+            })
+    }
+
 
     return (
         <div>
