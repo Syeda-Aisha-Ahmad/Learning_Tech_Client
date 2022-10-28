@@ -6,7 +6,7 @@ const Home = () => {
     return (
         <div>
             <div className='home-style'>
-                <h1>Be a brave with Learning Tech</h1>
+                <h1>Become a programmer with Learning Tech</h1>
                 <img src={banner} alt="" />
             </div>
         </div>
