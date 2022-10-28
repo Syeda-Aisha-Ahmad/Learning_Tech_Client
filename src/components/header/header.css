@@ -1,10 +1,9 @@
 .navbar-style {
     background-color: #fff9ed;
-    /* display: flex; */
 }
 
 .logo-style {
-    width: 13%;
+    width: 100%;
     margin-right: 10px;
 }
 
@@ -13,9 +12,6 @@
     text-decoration: none;
 }
 
-/* .mode {
-    padding: 4%;
-} */
 
 .nav-link-style {
     color: #814175;
@@ -34,12 +30,14 @@
 }
 
 .profile-photo {
-    width: 10%;
+    width: 7%;
+    margin: auto;
+    margin-left: 90%;
     border-radius: 50%;
     border: 1px solid #333;
 }
 
-.login {
+.log {
     color: #814175;
     font-size: 17px;
     font-weight: 700;
@@ -49,6 +47,4 @@
     padding: 3px 15px;
     margin-left: 10px;
     margin-right: 40px;
-    display: flex;
-    align-items: center;
 }

@@ -25,53 +25,52 @@ const Header = () => {
     }
     return (
         <div>
-            <Navbar expand="lg" className='navbar-style'>
-                <Container>
 
-                    <Navbar.Brand><Link to={'/'} className='logo-name-style'>
-                        <img src={logo} alt="" className='logo-style' />
-                        Learning Tech
-                    </Link>
-
+            <Navbar className='navbar-style' expand="lg" >
+                <Container >
+                    <Navbar.Brand href="#home">
+                        <Link to={'/'} className='logo-name-style'>
+                            <img src={logo} alt="" className='logo-style' />
+                            Learning Tech
+                        </Link>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="ms-auto">
-                            <Nav.Link><Link className='nav-link-style' to="courses">Courses</Link></Nav.Link>
+                        <Nav className="ms-auto d-flex align-items-center">
 
-                            <Nav.Link><Link className='nav-link-style' to="faq">FAQ</Link></Nav.Link>
-
-                            <Nav.Link><Link className='nav-link-style' to="blog">Blog</Link></Nav.Link>
-
-                            <Nav.Link>
-                                {
-                                    user?.uid ?
-                                        <div>
-                                            {
-                                                user?.photoURL ?
-                                                    <Nav.Link>
-                                                        <Image
-                                                            title={user?.displayName
-                                                            }
-                                                            className='profile-photo' src={user.photoURL}></Image>
-                                                    </Nav.Link>
-                                                    :
-                                                    <Nav.Link>
-                                                        <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
-                                                    </Nav.Link>
-                                            }
-                                            <Nav.Link>
-                                                <Link onClick={userLogout} className='login' to='/login'>LogOut</Link>
-                                            </Nav.Link>
-
-                                        </div>
-                                        :
-                                        <Nav.Link>
-                                            <Link className='login' to='/login'>LogIn</Link>
-                                        </Nav.Link>
-
-                                }
+                            <Nav.Link href="#home">
+                                <Link className='nav-link-style' to="courses">Courses</Link>
                             </Nav.Link>
+
+                            <Nav.Link href="#link">
+                                <Link className='nav-link-style' to="faq">FAQ</Link>
+                            </Nav.Link>
+
+                            <Nav.Link href="#home">
+                                <Link className='nav-link-style' to="blog">Blog</Link>
+                            </Nav.Link>
+
+                            {
+                                user?.uid ?
+                                    <div className='d-flex align-items-center'>
+                                        {
+                                            user?.photoURL ?
+                                                <Nav.Link href="#link"><Image
+                                                    title={user?.displayName
+                                                    }
+                                                    className='profile-photo' src={user.photoURL}></Image></Nav.Link>
+                                                :
+                                                <Nav.Link href="#link"><FontAwesomeIcon icon={faUser}></FontAwesomeIcon></Nav.Link>
+                                        }
+                                        <Nav.Link href="#link">
+                                            <Link onClick={userLogout} className='log' to='/login'>LogOut</Link>
+                                        </Nav.Link>
+                                    </div>
+                                    :
+                                    <Nav.Link href="#link">
+                                        <Link className='log' to='/login'>LogIn</Link>
+                                    </Nav.Link>
+                            }
                             <Nav.Link>
                                 {
                                     clicked ?
@@ -82,9 +81,7 @@ const Header = () => {
                             </Nav.Link>
 
                         </Nav>
-
                     </Navbar.Collapse>
-
                 </Container>
             </Navbar>
         </div>
