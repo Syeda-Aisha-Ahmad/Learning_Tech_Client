@@ -19,8 +19,6 @@ const Login = () => {
     // Google Login
     const googleHandler = () => {
         googleSignIn(provider)
-            // .then(result => {
-            //     const user = result.user;
             .then(result => {
                 const user = result.user;
                 console.log(user)
@@ -45,7 +43,7 @@ const Login = () => {
             })
     }
 
-    const handleRegister = (event) => {
+    const handleLogin = (event) => {
         event.preventDefault();
         const email = event.target.value;
         const password = event.target.value;
@@ -53,7 +51,7 @@ const Login = () => {
     }
     return (
         <div>
-            <Form onChange={handleRegister} className='mt-5 mx-auto w-50'>
+            <Form onChange={handleLogin} className='mt-5 mx-auto w-50'>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control name='email' type="email" placeholder="Enter email" />

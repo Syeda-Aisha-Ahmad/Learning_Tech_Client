@@ -6,7 +6,7 @@
 }
 
 .logo-style {
-    width: 5%;
+    width: 5% !important;
     padding: 0;
     margin: 15px;
 }

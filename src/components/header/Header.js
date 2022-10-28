@@ -17,9 +17,11 @@ const Header = () => {
             <Navbar expand="lg" className='d-flex navbar-style '>
                 <Container>
 
-                    <Navbar.Brand href="/">
+                    <Navbar.Brand><Link to={'/'} className='logo-name-style'>
                         <img src={logo} alt="" className='logo-style' />
                         Learning Tech
+                    </Link>
+
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
