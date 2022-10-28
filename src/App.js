@@ -1,8 +1,8 @@
-import { createBrowserRouter, Router, RouterProvider } from 'react-router-dom';
+import { async } from '@firebase/util';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Blog from './components/Blog/Blog';
+import CourseDetails from './components/Courses/CourseDatails/CourseDetails';
 import Courses from './components/Courses/Courses';
-import Header from './components/header/Header';
-import Home from './components/Home/Home';
 import Login from './components/login/Login';
 import NotFound from './components/notFound/NotFound';
 import Register from './components/register/Register';
@@ -19,6 +19,13 @@ function App() {
         { path: '/login', element: <Login></Login> },
         { path: '/register', element: <Register></Register> },
         { path: '*', element: <NotFound></NotFound> },
+        {
+          path: '/details/:id',
+          element: <CourseDetails></CourseDetails>,
+          loader: async ({ params }) => {
+            return fetch(`http://localhost:5000/details/${params.id}`)
+          }
+        }
       ]
     }
   ])

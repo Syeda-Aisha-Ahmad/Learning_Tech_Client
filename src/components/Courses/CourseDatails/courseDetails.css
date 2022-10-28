@@ -1,0 +1,13 @@
+.course-details-style {
+    width: 50%;
+    text-align: center;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.course-details-style img {
+    width: 95%;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}

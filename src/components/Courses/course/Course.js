@@ -4,7 +4,6 @@ import CardGroup from 'react-bootstrap/CardGroup';
 
 
 const Course = ({ course }) => {
-    console.log(course)
     return (
         <div>
             <CardGroup>
@@ -17,7 +16,7 @@ const Course = ({ course }) => {
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer>
-                        <small className="text-muted">{course.total}</small>
+                        <small className="text-muted">Total: {course.total}</small>
                     </Card.Footer>
                 </Card>
             </CardGroup>
