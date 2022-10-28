@@ -12,9 +12,27 @@ import { useState } from 'react';
 const Login = () => {
     const provider = new GoogleAuthProvider();
     const gitProvider = new GithubAuthProvider();
-    const { googleSignIn, githubLogIn } = useContext(AuthContext);
+    const { googleSignIn, githubLogIn, loginAccount } = useContext(AuthContext);
 
     const [errorText, setErrorText] = useState();
+
+    //Login with email
+    const loginHandler = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        loginAccount(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                form.reset()
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    }
 
     // Google Login
     const googleHandler = () => {
@@ -27,8 +45,6 @@ const Login = () => {
                 console.error(error)
                 setErrorText(error.message)
             })
-
-        // })
     }
 
     // Github Login
@@ -43,15 +59,9 @@ const Login = () => {
             })
     }
 
-    const handleLogin = (event) => {
-        event.preventDefault();
-        const email = event.target.value;
-        const password = event.target.value;
-        console.log(email, password)
-    }
     return (
         <div>
-            <Form onChange={handleLogin} className='mt-5 mx-auto w-50'>
+            <Form onSubmit={loginHandler} className='mt-5 mx-auto w-50'>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control name='email' type="email" placeholder="Enter email" />
@@ -73,7 +83,7 @@ const Login = () => {
                 </div>
                 <p>Don't have an account? please <Link to="/register">Register</Link></p>
             </Form>
-        </div>
+        </div >
     );
 };
 
