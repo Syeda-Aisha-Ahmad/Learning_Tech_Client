@@ -4,6 +4,7 @@ import Blog from './components/Blog/Blog';
 import Checkout from './components/checkout/Checkout';
 import CourseDetails from './components/Courses/CourseDatails/CourseDetails';
 import Courses from './components/Courses/Courses';
+import FAQ from './components/FAQ/FAQ';
 import Home from './components/Home/Home';
 import Login from './components/login/Login';
 import NotFound from './components/notFound/NotFound';
@@ -22,6 +23,7 @@ function App() {
         { path: '/blog', element: <Blog></Blog> },
         { path: '/login', element: <Login></Login> },
         { path: '/register', element: <Register></Register> },
+        { path: '/faq', element: <FAQ></FAQ> },
         { path: '*', element: <NotFound></NotFound> },
         {
           path: '/details/:id',
