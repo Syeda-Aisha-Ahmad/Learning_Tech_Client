@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Blog from './components/Blog/Blog';
 import CourseDetails from './components/Courses/CourseDatails/CourseDetails';
 import Courses from './components/Courses/Courses';
+import Home from './components/Home/Home';
 import Login from './components/login/Login';
 import NotFound from './components/notFound/NotFound';
 import Register from './components/register/Register';
@@ -14,6 +15,7 @@ function App() {
       path: '/',
       element: <Main></Main>,
       children: [
+        { path: '/', element: <Home></Home> },
         { path: '/courses', element: <Courses></Courses> },
         { path: '/blog', element: <Blog></Blog> },
         { path: '/login', element: <Login></Login> },

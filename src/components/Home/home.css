@@ -1,0 +1,21 @@
+.home-style img {
+    width: 100%;
+}
+
+.home-style h1 {
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    right: 35%;
+}
+
+@media only screen and (max-width: 600px) {
+    .home-style h1 {
+        color: #333;
+        position: absolute;
+        font-size: 18px;
+        top: 30%;
+        left: 25%;
+        text-align: center;
+    }
+}
