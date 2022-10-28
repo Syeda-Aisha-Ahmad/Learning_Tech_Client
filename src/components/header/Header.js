@@ -18,8 +18,6 @@ const Header = () => {
     const { user, logOut } = useContext(AuthContext);
     const [clicked, setClicked] = useState(false);
 
-    console.log(user)
-
     const userLogout = () => {
         logOut()
             .then(() => { })

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import './sidebar.css'
 
 const Sidebar = (courses) => {
-    console.log(courses.course)
     return (
         <div className='side-bar'>
             <h1>Courses</h1>
